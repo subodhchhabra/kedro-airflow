@@ -1,0 +1,4 @@
+SQLAlchemy==1.2.18
+apache-airflow>=1.10.3
+python-slugify
+kedro
