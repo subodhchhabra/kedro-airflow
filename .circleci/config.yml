@@ -27,10 +27,10 @@ jobs:
           name: Pip install dependencies
           command: |
             make install-pip-setuptools
-            pip install "kedro>=0.dev0"
+            pip install git+https://github.com/quantumblacklabs/kedro
             export AIRFLOW_GPL_UNIDECODE=yes
-            pip install -r requirements.txt -U
-            pip install -r test_requirements.txt -U
+            pip install -r requirements.txt
+            pip install -r test_requirements.txt
        - run:
           name: Run pylint and flake8
           command: |

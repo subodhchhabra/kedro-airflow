@@ -114,8 +114,9 @@ class AirflowRunner(AbstractRunner):
                 )
             )
 
+        node_dependencies = pipeline.node_dependencies
         operators_by_node = {}
-        for node in pipeline.nodes:
+        for node in node_dependencies:
             name = slugify(node.name)
             operators_by_node[node] = PythonOperator(
                 task_id=name,
@@ -125,5 +126,6 @@ class AirflowRunner(AbstractRunner):
                 **self._operator_arguments(name)
             )
 
-        for child, parent in pipeline.node_dependencies:
-            operators_by_node[child].set_upstream(operators_by_node[parent])
+        for node, dependencies in node_dependencies.items():
+            for dependency in dependencies:
+                operators_by_node[node].set_upstream(operators_by_node[dependency])
