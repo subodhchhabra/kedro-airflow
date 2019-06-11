@@ -72,7 +72,7 @@ class AirflowRunner(AbstractRunner):
 
         return task
 
-    def create_default_data_set(self, ds_name: str, max_loads: int):
+    def create_default_data_set(self, ds_name: str, max_loads: int = None):
         """Factory method for creating the default data set for the runner.
 
         Args:
