@@ -43,6 +43,14 @@ jobs:
           name: Run all end to end tests
           command: |
             make e2e-tests
+       - run:
+          name: Publish to PyPI
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              make package
+              python -m pip install twine -U
+              python -m twine upload --repository-url ${TWINE_REPOSITORY_URL} dist/*
+            fi
 
 workflows:
   version: 2

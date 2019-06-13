@@ -1,6 +1,6 @@
 package:
 	rm -Rf dist
-	python setup.py bdist_wheel
+	python setup.py sdist bdist_wheel
 
 install: package
 	pip install -U dist/*.whl
