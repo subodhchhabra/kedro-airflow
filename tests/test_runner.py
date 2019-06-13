@@ -1,7 +1,7 @@
 from unittest.mock import ANY, Mock, call
 
 import pytest
-from kedro.io import DataCatalog, MemoryDataSet
+from kedro.io import DataCatalog, LambdaDataSet, MemoryDataSet
 from kedro.pipeline import Pipeline
 from kedro.pipeline.node import Node
 
@@ -64,7 +64,12 @@ def test_run(mocker):  # pylint: disable=too-many-locals
     # actually call the runner to do the conversion
     dag = Mock()
     pipeline = Pipeline([first_node, last_node, middle_node])
-    catalog = DataCatalog({"a": None, "b": None})
+    catalog = DataCatalog(
+        {
+            "a": LambdaDataSet(load=None, save=None),
+            "b": LambdaDataSet(load=None, save=None),
+        }
+    )
     AirflowRunner(dag, None, operator_arguments).run(pipeline, catalog)
 
     # check the create task calls
