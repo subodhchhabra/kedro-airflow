@@ -89,7 +89,7 @@ def create():
 def deploy():
     """Copy DAG to Airflow home"""
     airflow_home = Path(os.environ.get("AIRFLOW_HOME", "~/airflow"))
-    dags_folder = airflow_home.resolve() / "dags"
+    dags_folder = airflow_home.expanduser().resolve() / "dags"
     dag_file = _get_dag_filename()
     secho("Copying {} to {}".format(str(dag_file), str(dags_folder)))
     copy(str(dag_file), str(dags_folder))
