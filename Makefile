@@ -21,6 +21,9 @@ test:
 e2e-tests:
 	behave
 
+legal:
+	python tools/license_and_headers.py
+
 clean:
 	rm -rf build dist pip-wheel-metadata .pytest_cache
 	find . -regex ".*/__pycache__" -exec rm -rf {} +

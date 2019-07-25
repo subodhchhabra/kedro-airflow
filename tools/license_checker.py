@@ -39,14 +39,18 @@ from typing import List, Mapping, Union
 WHITELISTED_PACKAGES_FILE = "package_whitelist.json"
 
 LICENSE_WHITELIST = (
+    "APACHE",
+    "APACHE-2",
     "APACHE 2.0",
     "APACHE LICENSE 2.0",
     "APACHE LICENSE VERSION 2.0",
     "APACHE LICENSE, VERSION 2.0",
+    "ARTISTIC LICENSE",
     "BSD",
     "BSD 2-CLAUSE",
     "BSD LICENSE",
     "BSD-3-CLAUSE",
+    "3-CLAUSE BSD",
     "BSD-LIKE",
     "ISC LICENSE",
     "LGPL",
