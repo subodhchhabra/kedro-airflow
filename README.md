@@ -20,7 +20,7 @@ pip install kedro-airflow
 
 ## How do I use Kedro-Airflow?
 
-The Kedro-Airflow plugin adds a `kedro airflow create` CLI command that generates an Airflow DAG file in the `airflow_dags` folder of your project. At runtime, this file translates your Kedro pipeline into Airflow Python operators. This DAG object can be modified according to your needs and then you can then deploy your project to Airflow by running `kedro airflow deploy`.
+The Kedro-Airflow plugin adds a `kedro airflow create` CLI command that generates an Airflow DAG file in the `airflow_dags` folder of your project. At runtime, this file translates your Kedro pipeline into Airflow Python operators. This DAG object can be modified according to your needs and you can then deploy your project to Airflow by running `kedro airflow deploy`.
 
 ### Prerequisites
 
@@ -36,7 +36,7 @@ The following conditions must be true for Airflow to run your pipeline:
 2. If needed, customize the DAG file as described [below](https://github.com/quantumblacklabs/kedro-airflow/blob/master/README.md#customization).
 3. Run `kedro airflow deploy` which will copy the DAG file from the `airflow_dags` folder in your Kedro project into the `dags` folder in the Airflow home directory.
 
-> *Note:* The generated DAG file will be placed in `$AIRFLOW_HOME/dags/` when `kedro airflow deploy` is run, where `AIRFLOW_HOME` is an environment variable. If the environment variable is not defined Kedro-Airflow will create `~/airflow` and `~/airflow/dags` (if required) and copy the DAG file into it.
+> *Note:* The generated DAG file will be placed in `$AIRFLOW_HOME/dags/` when `kedro airflow deploy` is run, where `AIRFLOW_HOME` is an environment variable. If the environment variable is not defined, Kedro-Airflow will create `~/airflow` and `~/airflow/dags` (if required) and copy the DAG file into it.
 
 ## Customization
 
