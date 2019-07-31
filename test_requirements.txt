@@ -1,0 +1,10 @@
+-r requirements.txt
+behave
+codacy-coverage
+flake8
+psutil
+pylint
+pytest-cov
+pytest-mock
+pytest
+wheel
