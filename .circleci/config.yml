@@ -49,14 +49,7 @@ jobs:
           name: Check for legal compliance
           command: |
             make legal
-       - run:
-          name: Publish to PyPI
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              make package
-              python -m pip install twine -U
-              python -m twine upload --repository-url ${TWINE_REPOSITORY_URL} dist/*
-            fi
+
   build_36:
     <<: *DEFAULT
     environment:
