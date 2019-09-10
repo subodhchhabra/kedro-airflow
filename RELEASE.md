@@ -1,3 +1,9 @@
+# Release 0.3.0
+
+## Major features and improvements
+* ...
+
+
 # Release 0.2.0
 
 ## Major features and improvements
