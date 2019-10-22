@@ -4,5 +4,5 @@ Flask==1.0.3
 # pinning Flask==1.0.3 can be removed after Airflow 1.10.4 is released
 # https://issues.apache.org/jira/browse/AIRFLOW-4903?page=com.atlassian.jira.plugin.system.issuetabpanels%3Aall-tabpanel
 apache-airflow==1.10.3
-python-slugify
+python-slugify<3.0.4 # dependency of text-unidecode version doesn't work with the version of text-unicode from apache-airflow
 kedro>=0.14.2
