@@ -6,7 +6,7 @@ install: package
 	pip install -U dist/*.whl
 
 install-pip-setuptools:
-	python -m pip install -U "pip>=18.0, <19.0" "setuptools>=38.0, <39.0" wheel
+	python -m pip install -U pip setuptools wheel
 
 lint:
 	isort

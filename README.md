@@ -1,9 +1,7 @@
 # Kedro-Airflow
 `develop` | `master`
 ----------|---------
-[![CircleCI](https://circleci.com/gh/quantumblacklabs/kedro/tree/develop.svg?style=shield)](https://circleci.com/gh/quantumblacklabs/kedro-airflow/tree/develop) | [![CircleCI](https://circleci.com/gh/quantumblacklabs/kedro-airflow/tree/master.svg?style=shield)](https://circleci.com/gh/quantumblacklabs/kedro-airflow/tree/master)
-[![Build status](https://ci.appveyor.com/api/projects/status/2u74p5g8fdc45wwh/branch/develop?svg=true)](https://ci.appveyor.com/project/QuantumBlack/kedro-airflow/branch/develop) | [![Build status](https://ci.appveyor.com/api/projects/status/2u74p5g8fdc45wwh/branch/master?svg=true)](https://ci.appveyor.com/project/QuantumBlack/kedrov-airflow/branch/master)
-
+[![CircleCI](https://circleci.com/gh/quantumblacklabs/kedro-airflow/tree/develop.svg?style=shield)](https://circleci.com/gh/quantumblacklabs/kedro-airflow/tree/develop) | [![CircleCI](https://circleci.com/gh/quantumblacklabs/kedro-airflow/tree/master.svg?style=shield)](https://circleci.com/gh/quantumblacklabs/kedro-airflow/tree/master)
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Python Version](https://img.shields.io/badge/python-3.5%20%7C%203.6%20%7C%203.7-blue.svg)](https://pypi.org/project/kedro-airflow/)

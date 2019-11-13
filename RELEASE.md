@@ -1,3 +1,9 @@
+# Release 0.2.1
+
+## Major features and improvements
+* Fix installation issue due to dependency version conflict.
+
+
 # Release 0.2.0
 
 ## Major features and improvements
