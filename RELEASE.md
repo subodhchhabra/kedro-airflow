@@ -1,3 +1,8 @@
+# Release 0.2.2
+
+## Major features and improvements
+* Fix a bug deploying when the Airflow directory does not exist.
+
 # Release 0.2.1
 
 ## Major features and improvements
