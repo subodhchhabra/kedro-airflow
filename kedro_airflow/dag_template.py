@@ -67,18 +67,23 @@ default_args = {
 }
 
 
-# fetch arguments for specific Airflow operators
+# Arguments for specific Airflow operators, keyed by Kedro node name
 def operator_specific_arguments(task_id):
     return {}
 
 
-# Inject Airflow's context, may modify the data catalog as necessary
-def process_context(data_catalog, **kwargs):
-    # drop unpicklable things
+# Injest Airflow's context, may modify the data catalog as necessary
+# also a good place to init Spark
+def process_context(data_catalog, **airflow_context):
+    # you could put all the airflow context into the catalog as a new dataset
     for key in ["dag", "conf", "macros", "task", "task_instance", "ti", "var"]:
-        del kwargs[key]
+        del airflow_context[key]  # drop unpicklable things
+    data_catalog.add_feed_dict({"airflow_context": airflow_context}, replace=True)
 
-    data_catalog.add_feed_dict({"airflow_context": kwargs}, replace=True)
+    # or add just the ones you need into Kedro parameters
+    parameters = data_catalog.load("parameters")
+    parameters["airflow_ds"] = airflow_context["ds"]
+    data_catalog.load("parameters", parameters)
 
     return data_catalog
 

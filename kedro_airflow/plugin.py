@@ -116,6 +116,7 @@ def deploy():
     """Copy DAG to Airflow home"""
     airflow_home = Path(os.environ.get("AIRFLOW_HOME", "~/airflow"))
     dags_folder = airflow_home.expanduser().resolve() / "dags"
+    dags_folder.mkdir(exist_ok=True, parents=True)
     dag_file = _get_dag_filename()
-    secho("Copying {} to {}".format(str(dag_file), str(dags_folder)))
+    secho("Copying {} to {}".format(str(dag_file), str(dags_folder / dag_file.name)))
     copy(str(dag_file), str(dags_folder))
