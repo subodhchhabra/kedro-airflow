@@ -1,3 +1,8 @@
+# Release 0.2.3
+
+## Major features and improvements
+* Fix a bug that was logging unnecessary Kedro messages when running Airflow commands.
+
 # Release 0.2.2
 
 ## Major features and improvements

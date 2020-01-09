@@ -193,3 +193,11 @@ def test_no_memory_datasets():
     catalog = DataCatalog({"fred": MemoryDataSet()})
     with pytest.raises(ValueError, match="memory data sets: 'fred'"):
         AirflowRunner(None, None, {}).run(pipeline, catalog)
+
+
+def test_unsatisfied_input():
+    pipeline = Pipeline([Node(lambda a: None, ["a"], None)])
+    catalog = DataCatalog()
+    pattern = r"Pipeline input\(s\) \{\'a\'\} not found in the DataCatalog"
+    with pytest.raises(ValueError, match=pattern):
+        AirflowRunner(None, None, {}).run(pipeline, catalog)

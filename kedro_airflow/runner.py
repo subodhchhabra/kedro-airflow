@@ -92,6 +92,32 @@ class AirflowRunner(AbstractRunner):
             "AirflowRunner does not support unregistered data sets.".format(ds_name)
         )
 
+    def run(self, pipeline: Pipeline, catalog: DataCatalog) -> None:
+        """Overriding the run method of AbstractRunner, which runs the ``Pipeline``
+        using the ``DataSet``s provided by ``catalog``.
+
+        Args:
+            pipeline: The ``Pipeline`` to run.
+            catalog: The ``DataCatalog`` from which to fetch data.
+
+        Raises:
+            ValueError: Raised when ``Pipeline`` inputs cannot be satisfied.
+
+        """
+        catalog = catalog.shallow_copy()
+        unsatisfied = pipeline.inputs() - set(catalog.list())
+        if unsatisfied:
+            raise ValueError(
+                "Pipeline input(s) {} not found in the "
+                "DataCatalog".format(unsatisfied)
+            )
+
+        unregistered_ds = pipeline.data_sets() - set(catalog.list())
+        for ds_name in unregistered_ds:
+            catalog.add(ds_name, self.create_default_data_set(ds_name))
+
+        self._run(pipeline, catalog)
+
     def _run(self, pipeline: Pipeline, catalog: DataCatalog) -> None:
         """The method implementing sequential pipeline running.
 
