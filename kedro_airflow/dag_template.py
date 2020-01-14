@@ -90,9 +90,7 @@ def process_context(data_catalog, **airflow_context):
 
 # Construct a DAG and then call into Kedro to have the operators constructed
 dag = DAG(
-    slugify("{{ project_name }}"),
-    default_args=default_args,
-    schedule_interval=timedelta(days=1),
+    slugify("{{ project_name }}"), default_args=default_args, schedule_interval=None,
 )
 
 {% if context_compatibility_mode %}

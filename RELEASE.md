@@ -2,6 +2,7 @@
 
 ## Major features and improvements
 * Fix a bug that was logging unnecessary Kedro messages when running Airflow commands.
+* Change default DAG schedule interval to None.
 
 # Release 0.2.2
 
