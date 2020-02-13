@@ -69,9 +69,8 @@ def create():
     )
 
     try:
-        from kedro.context import (  # noqa:F401 pylint: disable=unused-import
-            load_context,
-        )
+        # noqa:F401 pylint: disable=unused-import,import-outside-toplevel
+        from kedro.context import load_context
 
         context_compatibility_mode = False
     except ImportError:  # pragma: no coverage
